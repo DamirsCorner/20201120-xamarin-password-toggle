@@ -10,6 +10,10 @@ namespace PasswordToggle.ViewModels
     {
         public Command LoginCommand { get; }
 
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
         public LoginViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);

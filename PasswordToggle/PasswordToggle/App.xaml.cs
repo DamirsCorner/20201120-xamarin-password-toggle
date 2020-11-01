@@ -4,6 +4,8 @@ using Xamarin.Forms.Xaml;
 using PasswordToggle.Services;
 using PasswordToggle.Views;
 
+[assembly: ExportFont("FontAwesome5Regular.otf", Alias = "FontAwesome5Regular")]
+
 namespace PasswordToggle
 {
     public partial class App : Application

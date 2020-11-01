@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PasswordToggle.Controls"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
@@ -10,43 +11,9 @@
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <Entry Placeholder="Username"
                    Text="{Binding Username}" />
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="30"/>
-                </Grid.ColumnDefinitions>
-                <Entry Placeholder="Password"
-                       IsPassword="{Binding HidePassword}"
-                       Text="{Binding Password}" />
-                <ImageButton Command="{Binding TogglePasswordCommand}"
-                             BackgroundColor="Transparent"
-                             Grid.Column="1">
-                    <ImageButton.Triggers>
-                        <DataTrigger TargetType="ImageButton"
-                                     Binding="{Binding HidePassword}"
-                                     Value="True">
-                            <Setter Property="Source">
-                                <Setter.Value>
-                                    <FontImageSource FontFamily="FontAwesome5Regular"
-                                                     Color="Black"
-                                                     Glyph="&#xf06e;" />
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger TargetType="ImageButton"
-                                     Binding="{Binding HidePassword}"
-                                     Value="False">
-                            <Setter Property="Source">
-                                <Setter.Value>
-                                    <FontImageSource FontFamily="FontAwesome5Regular"
-                                                     Color="Black"
-                                                     Glyph="&#xf070;" />
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                    </ImageButton.Triggers>
-                </ImageButton>
-            </Grid>
+            <controls:TogglePasswordEntry Placeholder="Password"
+                                          Text="{Binding Password}"
+                                          HidePassword="True"/>
             <Button VerticalOptions="Center" 
                     Text="Login" 
                     Command="{Binding LoginCommand}"/>

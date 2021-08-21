@@ -24,6 +24,10 @@ namespace PasswordToggle.Controls
             BindableProperty.Create(nameof(HidePassword), typeof(bool), typeof(TogglePasswordEntry),
                 defaultValue: true);
 
+        public static readonly BindableProperty HidePasswordColorProperty =
+            BindableProperty.Create(nameof(HidePasswordColor), typeof(Color), typeof(TogglePasswordEntry),
+                defaultValue: Color.Black);
+
         public string Placeholder 
         {
             get => (string)GetValue(PlaceholderProperty);
@@ -40,6 +44,12 @@ namespace PasswordToggle.Controls
         {
             get => (bool)GetValue(HidePasswordProperty);
             set => SetValue(HidePasswordProperty, value);
+        }
+
+        public Color HidePasswordColor
+        {
+            get => (Color)GetValue(HidePasswordColorProperty);
+            set => SetValue(HidePasswordColorProperty, value);
         }
 
         public TogglePasswordEntry()
